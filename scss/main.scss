@@ -1,6 +1,20 @@
 @import 'core/settings';
 
+.cardFront {
+  height: 195px;
+  width: 160px;
+  border: 1px solid;
+  cursor: pointer;
+  margin: 10px;
+  list-style: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
 body {
-	background: url('../images/logo-adalab-80px.png') center center no-repeat #fff;
-	height: 100vh;
+	text-align: center;
 }
