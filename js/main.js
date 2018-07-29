@@ -6,12 +6,21 @@ var input = document.querySelectorAll('.radio');
 var button = document.querySelector('.first');
 var body = document.querySelector ('body');
 var main = document.querySelector('main');
+var url='https://raw.githubusercontent.com/Adalab/cards-data/master/';
+var urlBack ='https://via.placeholder.com/160x195/30d9c4/ffffff/?text=ADALAB';
+
+function showFrontCard(event){
+// console.log (event);
+// console.log (event.currentTarget);
+  var pokemon = event.currentTarget;
+  if(pokemon.src===urlBack){
+    pokemon.src = pokemon.getAttribute('data-url');
+  }else {pokemon.src===urlBack; }
+}
 
 
 function getCard() {
 
-  var url='https://raw.githubusercontent.com/Adalab/cards-data/master/';
-  var urlBack ='https://via.placeholder.com/160x195/30d9c4/ffffff/?text=ADALAB';
 
   fetch (url+numberOfCards+'.json')
     .then(function(response){
@@ -19,7 +28,7 @@ function getCard() {
 
     })
     .then (function(json){
-      console.log(json);
+      // console.log(json);
       main.innerHTML='';
 
       var list = document.createElement('ul');
@@ -27,12 +36,16 @@ function getCard() {
       main.appendChild(list);
       for ( var j = 0; j<json.length; j++){
         var card = document.createElement('li');
+        card.addEventListener('click', showFrontCard);
         card.classList.add('cardFront');
         list.appendChild(card);
 
         var image = document.createElement('img');
         card.appendChild(image);
         image.src= urlBack;
+        ////setAttribute lo uso para meter la dirección de una segunda imagen; en este caso es la del array del fetch
+        image.setAttribute('data-url', json[j].image);
+
       }
 
     });
