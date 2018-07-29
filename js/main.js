@@ -13,10 +13,21 @@ function showFrontCard(event){
 // console.log (event);
 // console.log (event.currentTarget);
   var pokemon = event.currentTarget;
+  console.log(pokemon);
   if(pokemon.src===urlBack){
+
     pokemon.src = pokemon.getAttribute('data-url');
   }else {pokemon.src===urlBack; }
 }
+
+
+// function showFrontCard (event) {
+//   if (event.currentTarget.src === urlBack) {
+//    event.currentTarget.src = event.currentTarget.getAttribute('data-url');
+//   } else {
+//     event.currentTarget.src = urlBack;
+//   }
+// }
 
 
 function getCard() {
@@ -36,16 +47,15 @@ function getCard() {
       main.appendChild(list);
       for ( var j = 0; j<json.length; j++){
         var card = document.createElement('li');
-        card.addEventListener('click', showFrontCard);
+
         card.classList.add('cardFront');
         list.appendChild(card);
-
         var image = document.createElement('img');
         card.appendChild(image);
         image.src= urlBack;
         ////setAttribute lo uso para meter la dirección de una segunda imagen; en este caso es la del array del fetch
         image.setAttribute('data-url', json[j].image);
-
+        card.addEventListener('click', showFrontCard);
       }
 
     });
