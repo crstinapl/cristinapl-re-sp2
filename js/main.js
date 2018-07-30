@@ -17,7 +17,8 @@ function showFrontCard(event){
   if(pokemon.src===urlBack){
 
     pokemon.src = pokemon.getAttribute('data-url');
-  }else {pokemon.src===urlBack; }
+  }else {pokemon.src= urlBack;}
+
 }
 
 
@@ -51,6 +52,7 @@ function getCard() {
         card.classList.add('cardFront');
         list.appendChild(card);
         var image = document.createElement('img');
+
 //////la otra opcion es repetir la linea del siguiente codigo cada image con su url.
 
         card.appendChild(image);

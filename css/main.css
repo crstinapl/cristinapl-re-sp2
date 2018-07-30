@@ -1,7 +1,7 @@
 .cardFront {
   height: 195px;
   width: 160px;
-  border: 1px solid;
+  border: 1px solid grey;
   cursor: pointer;
   margin: 10px;
   list-style: none;
