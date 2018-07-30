@@ -51,11 +51,13 @@ function getCard() {
         card.classList.add('cardFront');
         list.appendChild(card);
         var image = document.createElement('img');
+//////la otra opcion es repetir la linea del siguiente codigo cada image con su url.
+
         card.appendChild(image);
         image.src= urlBack;
         ////setAttribute lo uso para meter la dirección de una segunda imagen; en este caso es la del array del fetch
         image.setAttribute('data-url', json[j].image);
-        card.addEventListener('click', showFrontCard);
+        image.addEventListener('click', showFrontCard);
       }
 
     });
